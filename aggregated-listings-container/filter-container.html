@@ -1,0 +1,61 @@
+﻿<div 
+    class="filter-container">
+
+    <div 
+        class="filter-container__qty-wrp hidden-xs" 
+        ng-class="{'disabled': !$ctrl.state.mapReady }">
+
+        <sb-dropdown
+            items="$ctrl.availableQuantities"
+            selection="$ctrl.quantity"
+            custom-class="filter-container__dropdown-wrp text-medium"
+            item-selected-callback="$ctrl.onQuantityChanged"
+            label="Quantity"
+            custom-label-class="text-default"
+            display-arrow="true"
+            adv-analytics-click-once adv-analytics-name="Quantity Picker">
+        </sb-dropdown>
+    </div>
+
+    <div 
+        class="filter-container__qty-wrp visible-xs" 
+        ng-class="{'disabled': !$ctrl.state.mapReady }">
+
+        <label class="quantity-dropdown-label text-medium">
+            Qty:
+        </label>
+
+        <label 
+            class="quantity-dropdown-container">
+            <select 
+                class="text-medium" 
+                ng-options="quantity.key as quantity.text for quantity in $ctrl.availableQuantities"
+                ng-model="$ctrl.quantity" 
+                ng-change="$ctrl.onQuantityChanged($ctrl.quantity)"
+                track-namespace="RootQuantityPicker" 
+                track-click track-select='{"Quantity":[track-selected]}'>
+            </select>
+        </label>
+    </div>
+
+    <div
+        class="filter-container__price-wrp"
+        track-namespace="RootPrice">
+
+        <price-slider
+            is-linear="false"
+            is-slider-disabled="$ctrl.isSliderDisabled"
+            the-title="'Price'"
+            price="$ctrl.price"
+            price-proportion="$ctrl.priceProportion"
+            price-proportion-max="$ctrl.priceProportionMax"
+            min-price="$ctrl.minPrice"
+            max-price="$ctrl.maxPrice"
+            price-filter-level="$ctrl.priceFilterLevel"
+            upper-range-price="$ctrl.upperRangePrice"
+            on-price-change="$ctrl.onPriceChange({newPrice: newPrice})">
+    </price-slider>
+
+
+    </div>
+</div>

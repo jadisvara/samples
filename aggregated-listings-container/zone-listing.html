@@ -1,0 +1,32 @@
+﻿<div class="zone-listing"
+     ng-click="$ctrl.onSelect({listingId: $ctrl.listing.id})"
+     ng-mouseover="$ctrl.onHighlight({listingIds: [$ctrl.listing.id]})"
+     ng-mouseleave="$ctrl.onHighlight({listingIds: []})"
+     ng-class="{'highlighted': $ctrl.isHighlighted}">
+
+    <div 
+        class="zone-listing__indicator" 
+        ng-style="{'background-color': $ctrl.listing.bidSuccess.color}">
+        <div 
+            class="zone-listing__indicator__arrow" 
+            ng-style="{'border-left-color': $ctrl.listing.bidSuccess.color}">
+        </div>
+    </div>
+
+    <div class="zone-listing__zone-name truncate" 
+         title="{{::$ctrl.listing.displayName}}"
+         ng-bind="::$ctrl.listing.displayName">
+    </div>
+
+    <div class="zone-listing__save"
+         ng-bind="'Save up to ' + $ctrl.listing.natp.displaySavings"
+         ng-style="{'color': $ctrl.listing.bidSuccess.color}">
+    </div>
+
+    <div class="zone-listing__mao-lbl">Make an Offer</div>
+
+    <div class="zone-listing__reg-price"
+         ng-bind="'(Reg. price $' + $ctrl.listing.natp.displayPrice + ')'">
+    </div>
+
+</div>

@@ -1,0 +1,39 @@
+﻿<div class="seat-list-container" watch-scroll>
+    <!--    <div class="seat-list-container__best-txt hidden">Beast available deals</div>-->
+    <!--    <div class="seat-list-container__best-deals-wrp"></div>-->
+    <!--    <div class="seat-list-container__all-txt hidden">All deals</div>-->
+    <!--    <div class="seat-list-container__all-deals-wrp"></div>-->
+
+    <div class="seat-list-container__wrp"
+         ng-if="!!$ctrl.lazyListings"
+         infinite-scroll='$ctrl.loadMoreByScrolling()'
+         infinite-scroll-disabled='!$ctrl.infiniteScrollEnabled'
+         infinite-scroll-distance='1'
+         infinite-scroll-container='".seat-list-container"'>
+        <listing-container listings="$ctrl.lazyListings"
+                           scrollable-container=".seat-list-container"
+                           listing-selector=".section-listing, .zone-listing"
+                           listing-height="50">
+            <div ng-repeat="listing in $ctrl.lazyListings track by listing.id"
+                 class="seat-listing">
+
+                <!-- for NATP listing -->
+                <zone-listing ng-if="listing.isNatp && listing.natp"
+                              listing="listing"
+                              on-select="$ctrl.onSelectListing({listingId: listingId})"
+                              on-highlight="$ctrl.onHighlightListing({listingIds: listingIds})"
+                              highlighted-listings="$ctrl.highlightedListings">
+                </zone-listing>
+
+                <!-- for FP listing -->
+                <section-listing ng-if="!listing.isNatp && listing.fp"
+                                 listing="listing"
+                                 on-select="$ctrl.onSelectListing({listingId: listingId})"
+                                 on-highlight="$ctrl.onHighlightListing({listingIds: listingIds})"
+                                 highlighted-listings="$ctrl.highlightedListings">
+                </section-listing>
+
+            </div>
+        </listing-container>
+    </div>
+</div>

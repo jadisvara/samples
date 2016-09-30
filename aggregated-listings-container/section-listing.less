@@ -1,0 +1,101 @@
+﻿.section-listing {
+    @font: Roboto;
+    @font-weight: 400;
+    @listing-height: 68px;
+    @border-color: #e9e9e9;
+    @sub-line-color: #666666;
+
+    font-family: @font;
+    .size(376px, @listing-height);
+    border-bottom: solid 1px @border-color;
+    position: relative;
+    background-color: @color-white;
+    overflow: hidden;
+
+    .event-page--mobile & {
+        border-bottom: 1px solid @color-crayola-crystal;
+        .size(100%, 50px);
+    }
+
+    &.highlighted {
+        background: @color-gray96;
+        cursor: pointer;
+
+        .section-listing__indicator__arrow {
+            display: inline-block;
+        }
+    }
+
+    &__indicator {
+        .size(6px, 100%);
+        background-color: @color-shuttle-grey;
+        border-color: @color-shuttle-grey;
+        float: left;
+
+        &__arrow {
+            .size(0, 0);
+            border-style: solid;
+            border-width: 9.5px 0 9.5px 6px;
+            border-color: transparent transparent transparent @color-shuttle-grey;
+            display: none;
+            position: absolute;
+            top: 40%;
+            margin-left: 6px;
+
+            .event-page--mobile & {
+                margin-left: 5px;
+                top: 33%;
+            }
+        }
+    }
+
+    &__section-name {
+        display: inline-block;
+        color: @color-gray20;
+        font-size: 16px;
+        line-height: 18px;
+        margin: 25px 0 0 18px;
+        font-weight: @font-weight;
+        width: 200px;
+
+        .event-page--mobile & {
+            font-size: 14px;
+            margin: 17px 0 0 10px;
+            width: 55%;
+        }
+    }
+
+    &__price {
+        width: 110px;
+        float: right;
+        text-align: right;
+        font-size: 14px;
+        font-weight: @font-weight;
+        line-height: 22px;
+        color: @color-gray20;
+        margin: 22px 27px 0 0;
+
+        .event-page--mobile & {
+            margin: 9px 8px 0px 0px;
+            width: 35%;
+        }
+
+        &__from {
+            font-size: 14px;
+            color: @color-gray20;
+            line-height: 22px;
+            display: inline-block;
+        }
+
+        &__txt {
+            color: @color-gray20;
+            font-size: 22px;
+            line-height: 22px;
+            display: inline-block;
+
+            .event-page--mobile & {
+                font-size: 18px;
+            }
+        }
+    }
+}
