@@ -1,0 +1,30 @@
+﻿<div class="aggregated-listings-container">
+    <div class="aggregated-listings-container__back-to-all" ng-show="!$ctrl.state.isMobile && $ctrl.canGoBack">
+        <a class="clickable" ng-click="$ctrl.goBack()">
+            <i class="fa fa-angle-left"></i> Back to all seats
+        </a>
+    </div>
+
+    <filter-container
+        price="$ctrl.price"
+        quantity="$ctrl.quantity"
+        available-quantities="$ctrl.availableQuantities"
+        price-proportion="$ctrl.priceProportion"
+        price-proportion-max="$ctrl.priceProportionMax"
+        min-price="$ctrl.minPrice"
+        max-price="$ctrl.maxPrice"
+        price-filter-level="$ctrl.priceFilterLevel"
+        upper-range-price="$ctrl.upperRangePrice"
+        on-price-change="$ctrl.onPriceChange({newPrice: newPrice})"
+        on-quantity-change="$ctrl.onQuantityChange({newQuantity:newQuantity})">
+    </filter-container>
+
+    <seat-list-container ng-if="$ctrl.listings.length"
+        on-select-listing="$ctrl.onSelectListing({listingId: listingId})"
+        on-highlight-listing="$ctrl.onHighlightListing({listingIds: listingIds})"
+        highlighted-listings="$ctrl.highlightedListings"
+        listings="$ctrl.listings"
+        price="$ctrl.price"
+        max-price="$ctrl.maxPrice">
+    </seat-list-container>
+</div>

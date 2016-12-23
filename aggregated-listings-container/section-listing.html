@@ -1,0 +1,27 @@
+﻿<div 
+    class="section-listing"
+    ng-click="$ctrl.onSelect({listingId: $ctrl.listing.id})"
+    ng-mouseover="$ctrl.onHighlight({listingIds: [$ctrl.listing.id]})"
+    ng-mouseleave="$ctrl.onHighlight({listingIds: []})"
+    ng-class="{'highlighted': $ctrl.isHighlighted}">
+
+    <div class="section-listing__indicator">
+        <div class="section-listing__indicator__arrow"></div>
+    </div>
+
+    <div 
+        class="section-listing__section-name truncate" 
+        title="{{::$ctrl.listing.displayName}}" 
+        ng-bind="::$ctrl.listing.displayName">
+    </div>
+
+    <div class="section-listing__price">
+        <span 
+            class="section-listing__price__from"
+            ng-if="$ctrl.listing.fpCount > 1">From</span>
+        <span 
+            class="section-listing__price__txt" 
+            ng-bind="('$' + $ctrl.listing.displayPrice)"></span>
+    </div>
+
+</div>

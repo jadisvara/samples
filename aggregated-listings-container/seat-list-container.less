@@ -1,0 +1,63 @@
+﻿seat-list-container {
+    .event-page--mobile & {
+        position: initial;
+        display: block;
+        height: ~"calc(100% - 50px)";
+    }
+}
+
+.seat-list-container {
+    @border-color: #e9e9e9;
+    @sub-line-color: #666666;
+
+    border-radius: 4px;
+    background-color: @color-white;
+    margin-bottom: 16px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: auto;
+    font-family: Roboto;
+
+    .event-page--mobile & {
+        .size(100%, 100%);
+        margin: 0;
+        // fixes iOS kinetic scrolling
+        overflow: scroll;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    &__best-txt {
+        height: 38px;
+        background-color: @color-gray51;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 38px;
+        color: @sub-line-color;
+        padding-left: 25px;
+        // box shadows at the top
+        -webkit-box-shadow: inset 0 10px 20px -20px rgba(0,0,0,0.8);
+        -moz-box-shadow: inset 0 10px 20px -20px rgba(0,0,0,0.8);
+        box-shadow: inset 0 10px 20px -20px rgba(0, 0, 0, 0.8);
+        border-bottom: solid 1px @border-color;
+    }
+
+    &__best-deals-wrp {
+    }
+
+    &__all-txt {
+        height: 38px;
+        background-color: @color-gray51;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 38px;
+        color: @sub-line-color;
+        padding-left: 25px;
+        border-bottom: solid 1px @border-color;
+    }
+
+    &__all-deals-wrp {
+    }
+
+    &__wrp {
+    }
+}
